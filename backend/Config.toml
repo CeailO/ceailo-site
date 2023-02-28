@@ -3,6 +3,7 @@ server_address = "127.0.0.1"
 server_port = "4000"
 
 [database]
+database_url = ""
 username = "knnvsoekllwsjjf"
 password = "00340jsno43n25"
 

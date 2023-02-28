@@ -1,6 +1,5 @@
 mod config;
 mod routes;
-mod user;
 
 use ceailo_site::run;
 use config::Config;
