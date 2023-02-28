@@ -4,10 +4,15 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug)]
 pub struct Config {
+    #[allow(dead_code)]
     server_address: String,
+    #[allow(dead_code)]
     server_port: String,
+    #[allow(dead_code)]
     username: String,
+    #[allow(dead_code)]
     password: String,
+    #[allow(dead_code)]
     service_token: String,
 }
 
@@ -36,7 +41,7 @@ struct ConfigTomlApi {
 }
 
 impl Config {
-    pub fn new() -> Self {
+    pub fn _new() -> Self {
         let config_path: [&str; 3] = ["./Config.toml", "./config.toml", "~/.config"];
 
         let mut content = "".to_owned();
