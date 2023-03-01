@@ -1,18 +1,11 @@
 use axum::{
-    body::Body,
     extract::{Path, State},
-    handler::Handler,
     Json,
 };
 use serde::{Deserialize, Serialize};
-use tracing_subscriber::{fmt::writer::EitherWriter, Layer};
 use uuid::Uuid;
 
-use super::{
-    custom_uuid,
-    error::AppError,
-    user_repo::{self, _DynamicUserRepo},
-};
+use super::{custom_uuid, error::AppError, user_repo::_DynamicUserRepo};
 
 #[derive(Debug, Serialize, Clone)]
 pub struct User {
