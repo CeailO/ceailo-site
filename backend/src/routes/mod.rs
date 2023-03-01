@@ -1,34 +1,34 @@
-use std::{sync::Arc, future::Future, process::Output};
+use std::sync::Arc;
 
 use axum::{
     routing::{get, patch, post},
-    Router, handler::Handler,
+    Router,
 };
 
-use handler::{handler, handler_404};
+use handler::{_handler, _handler_404};
 use root::_root;
 
 use self::user::{
     user::User,
-    user_repo::{DynamicUserRepo, ExampleUserRepo},
+    user_repo::{_DynamicUserRepo, ExampleUserRepo},
 };
 
 mod handler;
 mod root;
 mod user;
 
-pub fn create_routes() -> Router {
-    let user_repo = Arc::new(ExampleUserRepo) as DynamicUserRepo;
+pub fn _create_routes() -> Router {
+    let user_repo = Arc::new(ExampleUserRepo) as _DynamicUserRepo;
 
     /* `GET` goes to `root` */
     Router::new()
         .route("/root", patch(_root))
         /* POST goes to `create_user */
-        .route("/user", post(User::create_user))
+        .route("/user", post(User::_create_user))
         /* */
-        // .route("/user/:id", get((User::show_user))) // Until uuid is implemented officially
+        // .route("/user/:id", get((User::_show_user))) // Until uuid is implemented officially
         /* */
-        .route("/", get(handler))
-        .fallback(handler_404)
+        .route("/", get(_handler))
+        .fallback(_handler_404)
         .with_state(user_repo)
 }

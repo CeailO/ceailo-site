@@ -1,5 +1,3 @@
-use axum::response::IntoResponse;
-
 #[derive(Debug)]
 pub enum UserRepoError {
     #[allow(dead_code)]

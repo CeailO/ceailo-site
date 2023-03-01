@@ -10,7 +10,7 @@ pub async fn run() {
     tracing_subscriber::fmt::init();
 
     /* build app with routes */
-    let app = routes::create_routes();
+    let app = routes::_create_routes();
 
     /*
      * run app with hyper

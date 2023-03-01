@@ -34,4 +34,4 @@ impl UserRepo for ExampleUserRepo {
     }
 }
 
-pub type DynamicUserRepo = Arc<dyn UserRepo + Send + Sync>;
+pub type _DynamicUserRepo = Arc<dyn UserRepo + Send + Sync>;

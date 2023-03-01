@@ -11,7 +11,7 @@ use uuid::Uuid;
 use super::{
     custom_uuid,
     error::AppError,
-    user_repo::{self, DynamicUserRepo},
+    user_repo::{self, _DynamicUserRepo},
 };
 
 #[derive(Debug, Serialize, Clone)]
@@ -36,17 +36,17 @@ impl User {
     }
 
     /* handler for `POST` /user */
-    pub async fn create_user(
-        State(user_repo): State<DynamicUserRepo>,
+    pub async fn _create_user(
+        State(user_repo): State<_DynamicUserRepo>,
         Json(payload): Json<CreateUser>,
     ) -> Result<Json<User>, AppError> {
         let user = user_repo.create(payload).await?;
         Ok(user.into())
     }
 
-    pub async fn show_user(
+    pub async fn _show_user(
         Path(user_id): Path<Uuid>,
-        State(user_repo): State<DynamicUserRepo>,
+        State(user_repo): State<_DynamicUserRepo>,
     ) -> Result<Json<User>, AppError> {
         let user = user_repo.find(user_id).await?;
         Ok(user.into())

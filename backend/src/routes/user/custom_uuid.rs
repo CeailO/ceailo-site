@@ -10,7 +10,7 @@ where
     val.to_string().serialize(serializer)
 }
 
-pub fn deserialize<'de, D>(deserializer: D) -> Result<Uuid, D::Error>
+pub fn _deserialize<'de, D>(deserializer: D) -> Result<Uuid, D::Error>
 where
     D: Deserializer<'de>,
 {
