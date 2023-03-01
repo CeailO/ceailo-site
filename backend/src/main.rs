@@ -6,7 +6,7 @@ use config::Config;
 
 #[tokio::main]
 async fn main() {
-    let config = Config::new();
+    let config = Config::_new();
     println!("{:?}", config);
     run().await
 }
