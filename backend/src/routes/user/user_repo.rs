@@ -24,7 +24,7 @@ pub struct ExampleUserRepo;
 #[async_trait]
 impl UserRepo for ExampleUserRepo {
     /* look a user by id */
-    async fn find(&self, user_id: Uuid) -> Result<User, UserRepoError> {
+    async fn find(&self, _user_id: Uuid) -> Result<User, UserRepoError> {
         todo!()
     }
 

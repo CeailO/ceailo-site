@@ -24,6 +24,7 @@ pub struct User {
 /* The input to `create_user` handler */
 #[derive(Deserialize, Clone)]
 pub struct CreateUser {
+    #[allow(dead_code)]
     username: String,
 }
 
@@ -53,18 +54,18 @@ impl User {
     }
 }
 
-// new() is private. There's nowhere to go here
+// new() is private. Until they open custom implementation, there's nowhere to go here
 
-// impl Handler<(), State<DynamicUserRepo>, EitherWriter> for User {
+// impl Handler<(), State<_DynamicUserRepo>, EitherWriter> for User {
 //     type Future;
 
-//     fn call(self, req: axum::http::Request<Body>, state: State<DynamicUserRepo>) -> Self::Future {
+//     fn call(self, req: axum::http::Request<Body>, state: State<_DynamicUserRepo>) -> Self::Future {
 //         todo!()
 //     }
 
-//     fn layer<L, NewReqBody>(self, layer: L) -> axum::handler::Layered<L, Self, (), State<DynamicUserRepo>, EitherWriter, NewReqBody>
+//     fn layer<L, NewReqBody>(self, layer: L) -> axum::handler::Layered<L, Self, (), State<_DynamicUserRepo>, EitherWriter, NewReqBody>
 //     where
-//         L: Layer<axum::handler::HandlerService<Self, (), State<DynamicUserRepo>, EitherWriter>> + Clone,
+//         L: Layer<axum::handler::HandlerService<Self, (), State<_DynamicUserRepo>, EitherWriter>> + Clone,
 //         L::Service: Service<axum::http::Request<NewReqBody>>,
 //     {
 //         axum::handler::Layered {
